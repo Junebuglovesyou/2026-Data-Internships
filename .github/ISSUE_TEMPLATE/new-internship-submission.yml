@@ -26,15 +26,12 @@ body:
       placeholder: "Example Corp"
     validations:
       required: true
-  - type: dropdown
+  - type: input
     id: location
     attributes:
       label: "Location"
-      description: "Select the internship location."
-      options:
-        - "San Francisco, CA"
-        - "Austin, TX"
-        - "Remote"
+      description: "Enter the internship location (e.g., 'Remote', 'San Francisco, CA', etc.)."
+      placeholder: "Remote, San Francisco, CA, etc."
     validations:
       required: true
   - type: dropdown
