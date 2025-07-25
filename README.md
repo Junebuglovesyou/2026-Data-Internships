@@ -27,6 +27,11 @@ To submit a new internship opportunity:
 - The markdown file will be named using the company and internship title (e.g., `company-name-internship-title.md`).
 - You can view all submitted internships in the `internships/` directory.
 
+<!-- INTERNSHIP_TABLE_START -->
+| Company | Internship Title | Location | Season | Sponsorship | Accepting Applications | Link |
+|---------|------------------|----------|--------|-------------|-----------------------|------|
+<!-- INTERNSHIP_TABLE_END -->
+
 ## Guidelines
 
 - Please provide accurate and up-to-date information.
