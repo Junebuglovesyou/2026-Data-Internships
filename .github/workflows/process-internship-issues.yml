@@ -2,12 +2,11 @@ name: Process Internship Submissions
 
 on:
   issues:
-    types: [opened]
+    types: [labeled]
 
 jobs:
   process_internship:
-    if: |
-      github.event.issue.labels.*.name contains 'internship-submission'
+    if: github.event.label.name == 'approved'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
