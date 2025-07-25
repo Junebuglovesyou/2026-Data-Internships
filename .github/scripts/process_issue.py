@@ -1,49 +1,41 @@
 #!/usr/bin/env python3
 import os
 import re
-import sys
-import yaml
 
 ISSUE_BODY = os.environ.get('ISSUE_BODY', '')
 ISSUE_TITLE = os.environ.get('ISSUE_TITLE', '')
 
 # Helper to slugify for filename
-
 def slugify(value):
     value = value.lower()
     value = re.sub(r'[^a-z0-9]+', '-', value)
     value = value.strip('-')
     return value
 
-# Parse the issue body (GitHub issue forms use YAML frontmatter)
+# Extract fields from markdown issue body using regex
+def extract_field(body, field):
+    match = re.search(rf"\*\*{field}:\*\* ?(.+)", body)
+    return match.group(1).strip() if match else ''
 
-def parse_issue_body(body):
-    # GitHub issue forms send the body as a YAML list
-    try:
-        data = yaml.safe_load(body)
-        if isinstance(data, list):
-            return {item['id']: item.get('value', '') for item in data}
-        return data
-    except Exception as e:
-        print(f"Error parsing issue body: {e}")
-        return {}
+fields = {
+    'Company': extract_field(ISSUE_BODY, 'Company'),
+    'Position': extract_field(ISSUE_BODY, 'Position'),
+    'Location': extract_field(ISSUE_BODY, 'Location'),
+    'Link': extract_field(ISSUE_BODY, 'Link'),
+    'Season': extract_field(ISSUE_BODY, 'Season'),
+    'Sponsorship': extract_field(ISSUE_BODY, 'Sponsorship'),
+    'Accepting Applications': extract_field(ISSUE_BODY, 'Accepting Applications'),
+    'Notes': extract_field(ISSUE_BODY, 'Notes'),
+}
 
-fields = parse_issue_body(ISSUE_BODY)
-
-print('DEBUG: Raw ISSUE_BODY:')
-print(ISSUE_BODY)
-print('DEBUG: Parsed fields:')
-print(fields)
-
-company = fields.get('company-name', 'unknown-company')
-title = fields.get('internship-title', 'unknown-internship')
-link = fields.get('internship-link', '')
-location = fields.get('location', '')
-season = fields.get('season', '')
-sponsorship = fields.get('sponsorship', '')
-accepting = fields.get('accepting-applications', '')
-email = fields.get('email', '')
-notes = fields.get('extra-notes', '')
+company = fields['Company'] or 'unknown-company'
+title = fields['Position'] or 'unknown-internship'
+link = fields['Link']
+location = fields['Location']
+season = fields['Season']
+sponsorship = fields['Sponsorship']
+accepting = fields['Accepting Applications']
+notes = fields['Notes']
 
 filename = f"{slugify(company)}-{slugify(title)}.md"
 filepath = os.path.join('internships', filename)
@@ -56,8 +48,6 @@ with open(filepath, 'w') as f:
     f.write(f"**Sponsorship:** {sponsorship}\n\n")
     f.write(f"**Accepting Applications:** {accepting}\n\n")
     f.write(f"**Link:** [{link}]({link})\n\n")
-    if email:
-        f.write(f"**Contact Email:** {email}\n\n")
     if notes:
         f.write(f"**Extra Notes:** {notes}\n\n")
     f.write("## Description\n\nAdd details about the internship here.\n\n")
@@ -65,7 +55,6 @@ with open(filepath, 'w') as f:
     f.write(f"Apply here: [{link}]({link})\n")
 
 # --- Update README.md with a table of all internships ---
-
 def extract_metadata(md_path):
     meta = {
         'Company': '', 'Internship Title': '', 'Location': '', 'Season': '', 'Sponsorship': '', 'Accepting Applications': '', 'Link': ''
