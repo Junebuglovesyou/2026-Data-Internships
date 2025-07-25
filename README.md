@@ -30,6 +30,7 @@ To submit a new internship opportunity:
 <!-- INTERNSHIP_TABLE_START -->
 | Company | Internship Title | Location | Season | Sponsorship | Accepting Applications | Link |
 |---------|------------------|----------|--------|-------------|-----------------------|------|
+| unknown-company | unknown-internship |  |  |  |  | []() |
 <!-- INTERNSHIP_TABLE_END -->
 
 ## Guidelines
