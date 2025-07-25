@@ -1,0 +1,88 @@
+name: "New Internship Submission"
+description: "Submit a new data internship opportunity for 2026."
+labels: ["internship-submission"]
+body:
+  - type: input
+    id: internship-title
+    attributes:
+      label: "Internship Title"
+      description: "e.g., 'ML Software Intern'"
+      placeholder: "ML Software Intern"
+    validations:
+      required: true
+  - type: input
+    id: internship-link
+    attributes:
+      label: "Link to Internship Posting"
+      description: "URL to the official internship listing."
+      placeholder: "https://company.com/careers/internship"
+    validations:
+      required: true
+  - type: input
+    id: company-name
+    attributes:
+      label: "Company Name"
+      description: "Name of the company offering the internship."
+      placeholder: "Example Corp"
+    validations:
+      required: true
+  - type: dropdown
+    id: location
+    attributes:
+      label: "Location"
+      description: "Select the internship location."
+      options:
+        - "San Francisco, CA"
+        - "Austin, TX"
+        - "Remote"
+    validations:
+      required: true
+  - type: dropdown
+    id: season
+    attributes:
+      label: "Season"
+      description: "Which season is this internship for?"
+      options:
+        - "Summer"
+        - "Fall"
+        - "Spring"
+        - "Winter"
+    validations:
+      required: true
+  - type: dropdown
+    id: sponsorship
+    attributes:
+      label: "Sponsorship"
+      description: "Does this internship offer sponsorship?"
+      options:
+        - "Yes"
+        - "No"
+        - "Other"
+    validations:
+      required: true
+  - type: dropdown
+    id: accepting-applications
+    attributes:
+      label: "Is the Internship Accepting Applications?"
+      description: "Is this internship currently accepting applications?"
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: input
+    id: email
+    attributes:
+      label: "Email (Optional)"
+      description: "Your email address (optional, for follow-up)."
+      placeholder: "you@email.com"
+    validations:
+      required: false
+  - type: textarea
+    id: extra-notes
+    attributes:
+      label: "Extra Notes (Optional)"
+      description: "Any additional details or context about the internship."
+      placeholder: "Add any extra information here."
+    validations:
+      required: false 
