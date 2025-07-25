@@ -30,6 +30,11 @@ def parse_issue_body(body):
 
 fields = parse_issue_body(ISSUE_BODY)
 
+print('DEBUG: Raw ISSUE_BODY:')
+print(ISSUE_BODY)
+print('DEBUG: Parsed fields:')
+print(fields)
+
 company = fields.get('company-name', 'unknown-company')
 title = fields.get('internship-title', 'unknown-internship')
 link = fields.get('internship-link', '')
