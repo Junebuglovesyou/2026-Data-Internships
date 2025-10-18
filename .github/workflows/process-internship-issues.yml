@@ -30,8 +30,8 @@ jobs:
         with:
           commit_message: "Add internship: ${{ github.event.issue.title }}"
           branch: ${{ github.ref }}
-          token: ${{ secrets.ACTIONS_DEPLOY_KEY }} 
+          token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 
 permissions:
   contents: write
-  issues: write 
+  issues: write
