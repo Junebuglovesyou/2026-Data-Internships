@@ -6,7 +6,6 @@ on:
 
 jobs:
   process_internship:
-    if: contains(github.event.issue.labels.*.name, 'internship-submission')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
