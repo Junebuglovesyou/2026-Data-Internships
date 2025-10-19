@@ -32,8 +32,8 @@ To submit a new internship opportunity:
 <!-- INTERNSHIP_TABLE_START -->
 | Company | Internship Title | Location | Season | Sponsorship | Accepting Applications | Link |
 |---------|------------------|----------|--------|-------------|-----------------------|------|
+| unknown-company | unknown-internship | Frisco, TX | Summer | Yes |  | []() |
 | Test Company | Data Science Intern | Remote | Summer | Yes | Yes | [https://example.com](https://example.com) |
-| unknown-company | unknown-internship |  |  |  |  | []() |
 <!-- INTERNSHIP_TABLE_END -->
 
 ## Guidelines

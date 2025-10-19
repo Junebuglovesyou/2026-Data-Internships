@@ -2,11 +2,11 @@
 
 **Company:** unknown-company
 
-**Location:** 
+**Location:** Frisco, TX
 
-**Season:** 
+**Season:** Summer
 
-**Sponsorship:** 
+**Sponsorship:** Yes
 
 **Accepting Applications:** 
 
