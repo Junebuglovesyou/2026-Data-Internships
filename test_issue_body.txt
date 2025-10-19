@@ -1,0 +1,15 @@
+**Company:** Test Company
+
+**Position:** Data Science Intern
+
+**Location:** Remote
+
+**Link:** https://example.com
+
+**Season:** Summer
+
+**Sponsorship:** Yes
+
+**Accepting Applications:** Yes
+
+**Notes:** Test submission

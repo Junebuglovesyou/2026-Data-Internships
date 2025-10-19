@@ -2,6 +2,8 @@
 
 This repository tracks and shares internship opportunities for Data Science, Machine Learning, and Data Engineering positions for the 2026 summer (and other seasons). The goal is to provide a centralized, community-driven resource for students and professionals seeking internships in the data field.
 
+*Inspired by [ouchainternships](https://github.com/ouchainternships/ouchainternships) - a community-driven platform for sharing internship opportunities.*
+
 ## How to Contribute
 
 To submit a new internship opportunity:
@@ -30,6 +32,7 @@ To submit a new internship opportunity:
 <!-- INTERNSHIP_TABLE_START -->
 | Company | Internship Title | Location | Season | Sponsorship | Accepting Applications | Link |
 |---------|------------------|----------|--------|-------------|-----------------------|------|
+| Test Company | Data Science Intern | Remote | Summer | Yes | Yes | [https://example.com](https://example.com) |
 | unknown-company | unknown-internship |  |  |  |  | []() |
 <!-- INTERNSHIP_TABLE_END -->
 
