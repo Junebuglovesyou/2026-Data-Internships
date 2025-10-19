@@ -14,14 +14,23 @@ def slugify(value):
 
 # Extract fields from markdown issue body using regex
 def extract_field(body, field):
-    # Handle both **Field:** and **Field:** formats, and ignore HTML comments
-    pattern = rf"\*\*{re.escape(field)}:\*\*\s*(.+?)(?=\n\*\*|\n\n|$)"
-    match = re.search(pattern, body, re.DOTALL)
-    if match:
-        value = match.group(1).strip()
-        # Remove HTML comments if present
-        value = re.sub(r'<!--.*?-->', '', value).strip()
-        return value
+    # Try multiple patterns to handle different GitHub issue formats
+    patterns = [
+        rf"\*\*{re.escape(field)}:\*\*\s*(.+?)(?=\n\*\*|\n\n|$)",  # **Field:** format
+        rf"### {re.escape(field)}\s*\n(.+?)(?=\n###|\n\n|$)",      # ### Field format
+        rf"{re.escape(field)}:\s*(.+?)(?=\n[A-Z]|\n\n|$)",        # Field: format
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, body, re.DOTALL | re.IGNORECASE)
+        if match:
+            value = match.group(1).strip()
+            # Remove HTML comments if present
+            value = re.sub(r'<!--.*?-->', '', value).strip()
+            # Remove markdown formatting
+            value = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', value)  # Remove links, keep text
+            if value and value != "_No response_":
+                return value
     return ''
 
 # Extract all fields
